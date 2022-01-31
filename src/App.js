@@ -18,10 +18,15 @@ const App = () => {
     try {
       const response = await fetch("https://www.boredapi.com/api/activity");
       const data = await response.json();
+
+      // Emulate a slow response
       setTimeout(() => {
+        // Remove before committing
         setActivity(data.activity);
         clearTimeout(timer);
+        //
       }, 2000);
+      //
     } catch (e) {
       console.log(e);
     }
